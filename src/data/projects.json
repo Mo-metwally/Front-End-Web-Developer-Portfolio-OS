@@ -1,0 +1,145 @@
+[
+  {
+    "id": 1,
+    "image": "Gimg7",
+    "month": "July",
+    "year": "2022",
+    "title": "Entity Agency",
+    "desc": "It is my Graduation project.",
+    "link": "https://mo-metwally.github.io/Entity-Agency.github.io/index.html",
+    "myRole": "UI/UX Designer | Frontend developer",
+    "tech": "HTML | CSS | JS | Native"
+  },
+  {
+    "id": 2,
+    "image": "Gimg6",
+    "month": "March",
+    "year": "2023",
+    "title": "Hamasat Home",
+    "desc": "E-commerce website offering a unique and modern assortment of kitchenware.",
+    "link": "https://mo-metwally.github.io/Hamasat-ecomm/",
+    "myRole": "UI/UX Designer | Frontend developer",
+    "tech": "HTML | CSS | JS | Native"
+  },
+  {
+    "id": 3,
+    "image": "Gimg5",
+    "month": "November",
+    "year": "2023",
+    "title": "Premium Agency",
+    "desc": "A creative agency providing graphic designs and video editing services.",
+    "link": "https://mo-metwally.github.io/premium-agency.github.io/",
+    "myRole": "UI/UX Designer | Frontend developer",
+    "tech": "HTML | CSS | JS | Native"
+  },
+  {
+    "id": 4,
+    "image": "Gimg9",
+    "month": "December",
+    "year": "2023",
+    "title": "EDU Weaver",
+    "desc": "The platform is user-friendly and well-designed, with intuitive navigation and visually appealing layouts that make learning enjoyable.",
+    "link": "https://www.behance.net/gallery/205282019/EDU-Weaver",
+    "myRole": "UI/UX Designer",
+    "tech": "UI/UX Design | Adobe XD"
+  },
+  {
+    "id": 5,
+    "image": "Gimg8",
+    "month": "January",
+    "year": "2024",
+    "title": "Ramis Hotel",
+    "desc": "UI design for a hotel website providing addresses, services, and reservation capabilities.",
+    "link": "https://www.behance.net/gallery/205281559/Ramis-Hotel",
+    "myRole": "UI/UX Designer",
+    "tech": "UI/UX Design | Adobe XD"
+  },
+  {
+    "id": 6,
+    "image": "Gimg4",
+    "month": "April",
+    "year": "2024",
+    "title": "Lawyer Website",
+    "desc": "Law and Legal Consulting Company provides legal services with local and international dealings with basic vision and value.",
+    "link": "https://flata.missanvip.com/",
+    "myRole": "Frontend developer",
+    "tech": "React.js | HTML | CSS | JS | Bootstrap"
+  },
+  {
+    "id": 7,
+    "image": "Gimg1",
+    "month": "June",
+    "year": "2024",
+    "title": "Missan Al-Mahariya",
+    "desc": "Programming company providing creative and diverse technical services.",
+    "link": "https://missanvip.com/",
+    "myRole": "Frontend developer",
+    "tech": "React.js | HTML | CSS | JS | Bootstrap"
+  },
+  {
+    "id": 8,
+    "image": "Gimg3",
+    "month": "July",
+    "year": "2024",
+    "title": "TrendLine E-Commerce",
+    "desc": "Providing expert consultation, design, installation, and maintenance services for all your technological and security needs.",
+    "link": "https://trendlineeg.com/",
+    "myRole": "Frontend developer",
+    "tech": "React.js | HTML | CSS | JS | Bootstrap"
+  },
+  {
+    "id": 9,
+    "image": "Gimg10",
+    "month": "Sep",
+    "year": "2024",
+    "title": "Ibrahim Al-Zahrani and Ahmed Al-Malki Law Firm",
+    "desc": "Law and Legal Consulting Company provides legal services with local and international dealings with basic vision and value.",
+    "link": "https://i-a-lawco.com/",
+    "myRole": "full-stack developer",
+    "tech": "React.js | node.js | postgreSQL | express.js | HTML | CSS | JS | Bootstrap"
+  },
+  {
+    "id": 10,
+    "image": "Gimg11",
+    "month": "June",
+    "year": "2025",
+    "title": "Al-Resala Legal Firm",
+    "desc": "Law and Legal Consulting Company provides legal services with local and international dealings with basic vision and value.",
+    "link": "https://rsallaw.com/",
+    "myRole": "full-stack developer",
+    "tech": "React.js | node.js | postgreSQL | express.js | HTML | CSS | JS | Bootstrap"
+  },
+  {
+    "id": 11,
+    "image": "Gimg12",
+    "month": "April",
+    "year": "2025",
+    "title": "Hamsat Home",
+    "desc": "Hamsat provides complete modern homeware solutions, built on a distinct vision of elegance, premium quality, and unmatched value.",
+    "link": "https://hamsathome.com/",
+    "myRole": "Hyper, mostly frontend developer",
+    "tech": "React.js | node.js | postgreSQL | express.js | HTML | CSS | JS | Bootstrap"
+  },
+  {
+    "id": 12,
+    "image": "Gimg13",
+    "month": "December-April",
+    "year": "2025-2026",
+    "title": "Jawlah Games Platform",
+    "desc": "One platform, five adventures! The pioneering Arab edutainment platform bridging learning and entertainment. Backed by a powerful admin panel and robust analytics dashboard for total control over site operations, game mechanics, and payment structures.",
+    "link": "https://jawlahsa.com/",
+    "myRole": "frontend developer",
+    "tech": "Vite.js | React.js | Next.js | Tailwind CSS | sass "
+  },
+  {
+    "id": 13,
+    "image": "Gimg14",
+    "month": "May",
+    "year": "2026",
+    "title": "Hawash Law Firm",
+    "desc": "Delivering precise and professional legal solutions to safeguard your investments and drive your business forward. Our goal is to be the leading legal partner for investors in Egypt through innovative and realistic approaches.",
+    "link": "https://hawashlawfirm.com/",
+    "myRole": "full-stack developer",
+    "tech": "Next.js | Tailwind CSS | sass | node.js | postgreSQL | express.js "
+  }
+]

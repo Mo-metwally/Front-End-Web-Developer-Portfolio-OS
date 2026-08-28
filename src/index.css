@@ -1,0 +1,397 @@
+@import "tailwindcss";
+
+:root {
+  --bg-dark: #12100e;
+  --bg-window: #fdfbf7;
+  --text-dark: #1c1917;
+  --text-muted: #736d65;
+  --accent-gold: #c88a58;
+  --accent-gold-hover: #d99c6b;
+  --accent-gold-dark: #a86f3e;
+  --font-serif: 'Newsreader', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-cairo: 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Light Theme Inversion Variables */
+[data-theme="light"] {
+  --bg-dark: #ede5da;
+  --bg-window: #ffffff;
+  --text-dark: #14110f;
+  --text-muted: #5e564d;
+  --accent-gold: #b37340;
+  --accent-gold-hover: #9c6030;
+  --accent-gold-dark: #824d22;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  user-select: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+
+/* Arabic Typography & Layout Fixes with Cairo Font */
+[lang="ar"], [dir="rtl"] {
+  direction: rtl;
+  font-family: var(--font-cairo) !important;
+}
+
+[lang="ar"] *, [dir="rtl"] * {
+  font-family: var(--font-cairo);
+  letter-spacing: 0px !important;
+}
+
+[lang="ar"] .font-mono-code,
+[dir="rtl"] .font-mono-code {
+  letter-spacing: 0px !important;
+  font-family: var(--font-cairo), 'JetBrains Mono', monospace !important;
+}
+
+[lang="ar"] .font-serif-display,
+[dir="rtl"] .font-serif-display {
+  font-family: var(--font-cairo) !important;
+  font-weight: 700;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #12100e;
+  color: #eae6df;
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="light"] body {
+  background-color: #ede5da;
+  color: #14110f;
+}
+
+.font-serif-display {
+  font-family: var(--font-serif);
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
+}
+
+/* Background Wallpaper Pattern (Dark Mode Default) */
+.os-wallpaper {
+  background-color: #12100e;
+  background-image: 
+    radial-gradient(circle at 50% 45%, rgba(42, 34, 28, 0.85) 0%, rgba(20, 17, 15, 0.96) 65%, #0c0a09 100%),
+    radial-gradient(circle at 50% 45%, transparent 120px, rgba(200, 138, 88, 0.02) 121px, transparent 122px),
+    radial-gradient(circle at 50% 45%, transparent 240px, rgba(200, 138, 88, 0.02) 241px, transparent 242px),
+    radial-gradient(circle at 50% 45%, transparent 380px, rgba(200, 138, 88, 0.015) 381px, transparent 382px),
+    radial-gradient(circle at 50% 45%, transparent 540px, rgba(200, 138, 88, 0.01) 541px, transparent 542px);
+  background-size: 100% 100%;
+  transition: background-color 0.3s ease, background-image 0.3s ease;
+}
+
+/* Light Theme Wallpaper Inversion */
+[data-theme="light"] .os-wallpaper {
+  background-color: #ede5da;
+  background-image: 
+    radial-gradient(circle at 50% 45%, rgba(255, 252, 247, 0.96) 0%, rgba(238, 231, 222, 0.98) 65%, #ded3c2 100%),
+    radial-gradient(circle at 50% 45%, transparent 120px, rgba(168, 111, 62, 0.04) 121px, transparent 122px),
+    radial-gradient(circle at 50% 45%, transparent 240px, rgba(168, 111, 62, 0.035) 241px, transparent 242px),
+    radial-gradient(circle at 50% 45%, transparent 380px, rgba(168, 111, 62, 0.025) 381px, transparent 382px);
+}
+
+.topography-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 18% 30%, rgba(200, 138, 88, 0.05) 0%, transparent 40%),
+              radial-gradient(circle at 82% 70%, rgba(168, 111, 62, 0.04) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+/* Top macOS Menu Bar */
+.top-menu-bar {
+  height: 36px;
+  background: rgba(18, 16, 14, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #c7c1b7;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  z-index: 999;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="light"] .top-menu-bar {
+  background: rgba(247, 243, 237, 0.96);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  color: #2c251f;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* macOS Window Structure */
+.mac-window-container {
+  position: absolute;
+  background: #fdfbf7;
+  color: #1c1917;
+  border-radius: 14px;
+  box-shadow: 0 35px 90px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="light"] .mac-window-container {
+  background: #ffffff;
+  color: #12100e;
+  box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.mac-window-header {
+  height: 38px;
+  background: #f7f3ec;
+  border-bottom: 1px solid #eae3d7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  cursor: grab;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="light"] .mac-window-header {
+  background: #f3ece2;
+  border-bottom: 1px solid #e4dacb;
+}
+
+.mac-window-header:active {
+  cursor: grabbing;
+}
+
+.mac-window-content {
+  flex: 1;
+  overflow-y: auto;
+  background: #fdfbf7;
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="light"] .mac-window-content {
+  background: #ffffff;
+}
+
+/* Traffic Lights */
+.traffic-light-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: filter 0.15s ease;
+}
+
+.traffic-light-btn:hover {
+  filter: brightness(0.85);
+}
+
+.traffic-red {
+  background: #ff5f56;
+  border-color: #e0443e;
+}
+
+.traffic-yellow {
+  background: #ffbd2e;
+  border-color: #dea123;
+}
+
+.traffic-green {
+  background: #27c93f;
+  border-color: #1aab29;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 138, 88, 0.25);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 138, 88, 0.45);
+}
+
+/* Text Selection */
+::selection {
+  background: rgba(200, 138, 88, 0.35);
+  color: #12100e;
+}
+
+/* Window Animation Effects */
+@keyframes macWindowOpen {
+  0% {
+    opacity: 0;
+    transform: scale(0.93);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes macWindowClose {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.93);
+  }
+}
+
+@keyframes macWindowMinimize {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3) translateY(320px);
+  }
+}
+
+.mac-window-opening {
+  animation: macWindowOpen 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: center center;
+}
+
+.mac-window-closing {
+  animation: macWindowClose 0.16s ease-in forwards;
+  transform-origin: center center;
+}
+
+.mac-window-minimizing {
+  animation: macWindowMinimize 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: center bottom;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.45;
+  }
+}
+
+.mac-window-opening {
+  animation: macWindowOpen 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mac-window-closing {
+  animation: macWindowClose 0.16s ease-in forwards;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN BREAKPOINTS (1920px -> 1366px -> 1200px -> 768px -> Mobile)
+   ========================================================= */
+
+/* Laptops under 1280px */
+@media (max-width: 1280px) {
+  .right-sidebar-container {
+    display: none !important;
+  }
+  .mascot-container {
+    display: none !important;
+  }
+}
+
+/* Tablets and Mobile (< 768px) */
+@media (max-width: 768px) {
+  .desktop-icons-container {
+    display: none !important;
+  }
+
+  .mac-window-container {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .mac-window-header {
+    padding: 0 10px !important;
+  }
+
+  .dock-container {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    max-width: 98vw !important;
+    overflow-x: auto !important;
+  }
+
+  .dock-inner {
+    padding: 4px 6px !important;
+    gap: 4px !important;
+  }
+
+  .responsive-2col {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+/* Mobile Landscape Mode Support */
+@media (max-height: 520px) and (orientation: landscape) {
+  .desktop-icons-container {
+    display: none !important;
+  }
+  .right-sidebar-container {
+    display: none !important;
+  }
+  .mascot-container {
+    display: none !important;
+  }
+  .dock-container {
+    transform: translateX(-50%) scale(0.85) !important;
+    bottom: -6px !important;
+  }
+}
+
+/* Mobile Screens (<= 600px) */
+@media (max-width: 600px) {
+  .dock-item-terminal {
+    display: none !important;
+  }
+}
+
+
+
