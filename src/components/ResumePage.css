@@ -1,0 +1,1077 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Color Variables for Resume Page */
+:root {
+  --cv-bg: #F5EFEB;
+  --cv-card: #FAF7F2;
+  --cv-card-subtle: #F0E8DE;
+  --cv-dark-brown: #201812;
+  --cv-text-dark: #231B15;
+  --cv-text-muted: #68594D;
+  --cv-border: #DDD1C2;
+  --cv-accent: #B85D19;
+  --cv-green: #1E8E3E;
+  --cv-yellow: #D97706;
+  --cv-red: #E11D48;
+}
+
+/* Unlock global scrolling when on Resume page */
+html.resume-mode,
+body.resume-mode {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  height: auto !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+}
+
+/* Ensure resume page allows text selection */
+.resume-root,
+.resume-root * {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+
+/* Base Wrapper on Screen */
+.resume-root {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #201812;
+  background-image: 
+    radial-gradient(circle at 50% 10%, rgba(46, 36, 28, 0.95) 0%, rgba(26, 20, 16, 0.98) 60%, #15100c 100%),
+    radial-gradient(circle at 18% 30%, rgba(200, 138, 88, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 82% 70%, rgba(168, 111, 62, 0.06) 0%, transparent 45%);
+  color: #231B15;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  direction: ltr !important;
+}
+
+.resume-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 80px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+/* Screen Body Layout for Page 1 & Page 2 with comfortable padding */
+.cv-body-p1,
+.cv-body-p2 {
+  padding: 26px 28px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .cv-body-p1,
+  .cv-body-p2 {
+    padding: 16px 14px;
+  }
+}
+
+/* =========================================================
+   CV Graphical Card & Box Layout Components
+   ========================================================= */
+
+/* Executive Summary Box */
+.cv-summary-box {
+  background-color: #201812;
+  color: #FAF5EE;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid #382c23;
+  margin: 14px 0 16px 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+.cv-summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.cv-summary-text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #F3ECE1;
+  padding: 0 2px;
+}
+
+/* Outer Section Boxes (02 Tech Stack, 03 Education, 04 Experience, 05 Flagship, 06 Client Platforms, 07 Certifications) */
+.cv-section-box {
+  background-color: #F2EBE1;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1px solid #DDD1C2;
+  box-sizing: border-box;
+}
+
+.cv-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* Header Contact Box */
+.cv-contact-box {
+  background-color: #EFE8DD;
+  border: 1px solid #DDD1C2;
+  border-radius: 12px;
+  padding: 12px 18px 10px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.cv-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 20px;
+  row-gap: 8px;
+}
+.cv-contact-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  color: #68594D;
+  border-top: 1px dashed rgba(221, 209, 194, 0.9);
+  padding-top: 6px;
+  margin-top: 2px;
+}
+
+/* Inner White Cards (Platform cards, Job cards, Meta card, Udacity, IBM) */
+.cv-item-card {
+  background-color: #ffffff;
+  border: 1px solid #DDD1C2;
+  border-radius: 10px;
+  padding: 15px 18px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.cv-item-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.cv-item-card-desc {
+  font-size: 12.5px;
+  color: #68594D;
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+/* Work Experience typography and margins */
+.cv-exp-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #201812;
+  margin-bottom: 4px;
+}
+.cv-exp-company {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #68594D;
+  margin-bottom: 8px;
+}
+.cv-exp-list {
+  list-style-type: disc;
+  padding-left: 18px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+.cv-exp-list li {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #231B15;
+  margin-bottom: 7px;
+}
+.cv-exp-list li:last-child {
+  margin-bottom: 0;
+}
+.cv-exp-divider {
+  border-top: 1px solid #DDD1C2;
+  padding-top: 14px;
+  margin-top: 14px;
+}
+
+/* Meta 3x3 Course Grid */
+.cv-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  background-color: #FAF7F2;
+  border: 1px solid #DDD1C2;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.cv-course-tile {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #231B15;
+  background-color: #F4ECE1;
+  border: 1px solid #E5D8C8;
+  border-radius: 6px;
+  padding: 6px 9px;
+  display: flex;
+  align-items: center;
+  line-height: 1.35;
+}
+
+/* Tag Pills */
+.cv-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #DDD1C2;
+  color: #231B15;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+/* Beyond Front-End competency cards */
+.cv-beyond-card {
+  background-color: #ffffff;
+  border: 1px solid #DDD1C2;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+.cv-beyond-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+.cv-beyond-card-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #201812;
+}
+.cv-beyond-card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: #B85D19;
+  background-color: #FAF5EE;
+  border: 1px solid #E8C29E;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+.cv-beyond-card-desc {
+  font-size: 11px;
+  color: #68594D;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Skills Highlight Bar */
+.cv-skills-highlight {
+  background-color: #FAF7F2;
+  border: 1px solid #DDD1C2;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #68594D;
+  margin-top: auto;
+}
+
+
+
+
+/* =========================================================
+   Top Floating Toolbar & Navigation Styles (Screen Only)
+   ========================================================= */
+.resume-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(22, 17, 14, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(200, 138, 88, 0.28);
+  padding: 10px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.resume-toolbar-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.resume-btn-os {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: rgba(200, 138, 88, 0.14);
+  border: 1px solid rgba(200, 138, 88, 0.42);
+  color: #f5eee6;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease;
+}
+.resume-btn-os:hover {
+  background: rgba(200, 138, 88, 0.26);
+  border-color: #c88a58;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(200, 138, 88, 0.28);
+}
+
+.resume-mode-switch {
+  display: inline-flex;
+  align-items: center;
+  background: #18130f;
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid #3d3024;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  gap: 4px;
+}
+
+.resume-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #a89a8c;
+  transition: all 0.2s ease;
+}
+.resume-mode-btn.active {
+  background: #c88a58;
+  color: #12100e;
+  box-shadow: 0 2px 8px rgba(200, 138, 88, 0.35);
+}
+.resume-mode-btn:not(.active):hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.resume-btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(200, 138, 88, 0.14);
+  border: 1px solid rgba(200, 138, 88, 0.4);
+  color: #c88a58;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.resume-btn-action:hover {
+  background: rgba(200, 138, 88, 0.26);
+  border-color: #c88a58;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.resume-btn-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  background: #FAF7F2;
+  color: #201812;
+  font-size: 13px;
+  font-weight: 800;
+  border: 1px solid #DDD1C2;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+.resume-btn-print:hover {
+  background: #ffffff;
+  border-color: #c88a58;
+  color: #B85D19;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(200, 138, 88, 0.3);
+}
+
+.resume-banner {
+  max-width: 900px;
+  margin: 16px auto 8px auto;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: rgba(30, 24, 19, 0.94);
+  border: 1px solid rgba(200, 138, 88, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #d8cdbe;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.resume-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(200, 138, 88, 0.18);
+  border: 1px solid rgba(200, 138, 88, 0.45);
+  color: #c88a58;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.resume-banner-btn:hover {
+  background: rgba(200, 138, 88, 0.35);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.resume-banner.ats {
+  border-color: rgba(30, 142, 62, 0.4);
+}
+.resume-banner-btn.ats {
+  background: rgba(30, 142, 62, 0.2);
+  border-color: rgba(30, 142, 62, 0.5);
+  color: #27c93f;
+}
+.resume-banner-btn.ats:hover {
+  background: rgba(30, 142, 62, 0.35);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   1. Graphical (OS Style) Document Pages
+   ========================================================= */
+.cv-page {
+  width: 100%;
+  
+  max-width: 860px;
+  margin: 0 auto !important;
+  background-color: #FAF7F2;
+  border: 1px solid #DDD1C2;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-top-bar {
+  background-color: #EDE5DA;
+  border-bottom: 1px solid #DDD1C2;
+  padding: 9px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.cv-body-p1 {
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+.cv-body-p2 {
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+.cv-section-box {
+  background-color: #F2EBE1;
+  border: 1px solid #DDD1C2;
+  border-radius: 12px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: 33.5% 64.5%;
+  gap: 12px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.cv-grid-left,
+.cv-grid-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  .cv-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.cv-link {
+  color: #231B15;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.cv-link:hover {
+  color: #B85D19 !important;
+  text-decoration: underline;
+}
+
+/* Project Action Pill Buttons */
+.cv-project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3.5px 10px;
+  border-radius: 6px;
+  background-color: #F5EFEB;
+  border: 1px solid #DDD1C2;
+  color: #B85D19;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.cv-project-btn:hover {
+  background-color: #FAF2EA;
+  border-color: #B85D19;
+  color: #96470D;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(184, 93, 25, 0.18);
+}
+
+.cv-project-btn-live {
+  background-color: #EBF8EE;
+  border-color: #B6E5C2;
+  color: #1E8E3E;
+}
+.cv-project-btn-live:hover {
+  background-color: #DEF5E3;
+  border-color: #1E8E3E;
+  color: #146C2E;
+  box-shadow: 0 2px 6px rgba(30, 142, 62, 0.22);
+}
+
+.cv-project-btn-behance {
+  background-color: #F0F4FF;
+  border-color: #CCD9FC;
+  color: #0056D2;
+}
+.cv-project-btn-behance:hover {
+  background-color: #E2ECFF;
+  border-color: #0056D2;
+  color: #003B94;
+  box-shadow: 0 2px 6px rgba(0, 86, 210, 0.22);
+}
+
+.cv-badge {
+  background-color: #ffffff;
+  border: 1px solid #DDD1C2;
+  color: #201812;
+  border-radius: 6px;
+  padding: 3.5px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.45;
+}
+.cv-badge:hover {
+  border-color: #B85D19;
+  color: #B85D19;
+  background-color: #FCFAF7;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.cv-badge-accent {
+  background-color: #FBF0E6;
+  border: 1px solid #E8C29E;
+  color: #B85D19;
+  font-weight: 700;
+}
+.cv-badge-accent:hover {
+  background-color: #F8E7D6;
+  border-color: #B85D19;
+}
+
+.cv-tag {
+  background-color: #F5EFEB;
+  border: 1px solid #E2D7CA;
+  color: #68594D;
+  border-radius: 5px;
+  padding: 2.5px 8px;
+  font-size: 10.5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  display: inline-block;
+  line-height: 1.4;
+  transition: all 0.15s ease;
+}
+.cv-tag:hover {
+  border-color: #c88a58;
+  color: #201812;
+  background-color: #ede4d8;
+}
+
+/* =========================================================
+   2. 100% ATS-Friendly Document Page (Standard Single-Column)
+   ========================================================= */
+.ats-page {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto !important;
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
+  padding: 44px 52px;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .ats-page {
+    padding: 24px 18px;
+  }
+}
+
+.ats-header {
+  border-bottom: 2px solid #111827;
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.ats-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.ats-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.ats-contact-line {
+  font-size: 11.5px;
+  color: #374151;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 14px;
+  line-height: 1.4;
+}
+
+.ats-contact-line a {
+  color: #1f2937;
+  text-decoration: underline;
+}
+
+.ats-contact-line a:hover {
+  color: #b85d19;
+}
+
+.ats-section-title {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #111827;
+  border-bottom: 1.5px solid #111827;
+  padding-bottom: 4px;
+  margin-top: 22px;
+  margin-bottom: 10px;
+}
+
+.ats-item {
+  margin-bottom: 14px;
+}
+
+.ats-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.ats-item-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.ats-item-subtitle {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.ats-item-date {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.ats-bullet-list {
+  list-style-type: disc;
+  margin-left: 18px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.ats-bullet-list li {
+  margin-bottom: 3px;
+}
+
+.ats-skills-block {
+  font-size: 12.5px;
+  color: #374151;
+  line-height: 1.7;
+}
+
+.ats-skills-block strong {
+  color: #111827;
+}
+
+/* =========================================================
+   Print Styles: Graphical vs ATS modes
+   ========================================================= */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  html, body {
+    width: 210mm !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  #root, .resume-root, .resume-container {
+    background: none !important;
+    background-image: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    width: 210mm !important;
+    max-width: 210mm !important;
+    gap: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* Graphical Print */
+  body:not(.ats-print-active) {
+    background-color: #F5EFEB !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body:not(.ats-print-active) .cv-page {
+    width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    background-color: #FAF7F2 !important;
+  }
+
+  body:not(.ats-print-active) .cv-page:last-child {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  body:not(.ats-print-active) .cv-top-bar {
+    height: 30px !important;
+    padding: 5px 20px !important;
+    flex-shrink: 0 !important;
+    background-color: #EDE5DA !important;
+    border-bottom: 1px solid #DDD1C2 !important;
+  }
+
+  body:not(.ats-print-active) .cv-header {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding-bottom: 8px !important;
+  }
+
+  /* Page 1 Body: fine-tuned spacing so nothing gets cut off */
+  body:not(.ats-print-active) .cv-body-p1 {
+    padding: 16px 22px 18px 22px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    height: calc(297mm - 30px) !important;
+    box-sizing: border-box !important;
+    justify-content: space-between !important;
+  }
+
+  /* Page 2 Body: comfortable spacing filling A4 */
+  body:not(.ats-print-active) .cv-body-p2 {
+    padding: 16px 22px 18px 22px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    height: calc(297mm - 30px) !important;
+    box-sizing: border-box !important;
+    justify-content: space-between !important;
+  }
+
+  body:not(.ats-print-active) .cv-grid {
+    display: grid !important;
+    grid-template-columns: 34% 64% !important;
+    gap: 14px !important;
+    flex: 1 !important;
+    box-sizing: border-box !important;
+  }
+
+  body:not(.ats-print-active) .cv-grid-left,
+  body:not(.ats-print-active) .cv-grid-right {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+  }
+
+  body:not(.ats-print-active) .cv-section-box {
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  body:not(.ats-print-active) .cv-badge {
+    padding: 2px 6.5px !important;
+    font-size: 9.5px !important;
+  }
+
+  body:not(.ats-print-active) .cv-tag {
+    padding: 1.5px 6px !important;
+    font-size: 9px !important;
+  }
+
+  /* Component Print Scaling - Upscaled to fill A4 pages nicely */
+  body:not(.ats-print-active) .cv-summary-box {
+    padding: 13px 18px !important;
+    margin: 8px 0 12px 0 !important;
+    border-radius: 9px !important;
+  }
+  body:not(.ats-print-active) .cv-summary-header {
+    margin-bottom: 6px !important;
+  }
+  body:not(.ats-print-active) .cv-summary-text {
+    font-size: 11.5px !important;
+    line-height: 1.55 !important;
+  }
+  body:not(.ats-print-active) .cv-section-box {
+    padding: 14px 16px !important;
+    border-radius: 9px !important;
+  }
+  body:not(.ats-print-active) .cv-section-header {
+    margin-bottom: 10px !important;
+  }
+  body:not(.ats-print-active) .cv-item-card {
+    padding: 12px 14px !important;
+    border-radius: 8px !important;
+  }
+  body:not(.ats-print-active) .cv-item-card-header {
+    margin-bottom: 6px !important;
+  }
+  body:not(.ats-print-active) .cv-item-card-desc {
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 8px !important;
+  }
+  body:not(.ats-print-active) .cv-tag-pill {
+    padding: 2.5px 7px !important;
+    font-size: 9.5px !important;
+  }
+  body:not(.ats-print-active) .cv-skills-highlight {
+    padding: 6px 10px !important;
+    font-size: 9.5px !important;
+  }
+  body:not(.ats-print-active) .cv-contact-box {
+    padding: 10px 16px 8px 16px !important;
+    gap: 6px !important;
+    border-radius: 10px !important;
+  }
+  body:not(.ats-print-active) .cv-contact-grid {
+    column-gap: 18px !important;
+    row-gap: 5px !important;
+  }
+  body:not(.ats-print-active) .cv-contact-location {
+    padding-top: 5px !important;
+    margin-top: 2px !important;
+    font-size: 9.5px !important;
+  }
+  body:not(.ats-print-active) .cv-courses-grid {
+    padding: 9px 12px !important;
+    gap: 6px !important;
+    border-radius: 8px !important;
+  }
+  body:not(.ats-print-active) .cv-course-tile {
+    padding: 4px 7px !important;
+    font-size: 9.5px !important;
+    border-radius: 5px !important;
+  }
+  body:not(.ats-print-active) .cv-beyond-card {
+    padding: 6px 10px !important;
+    border-radius: 6px !important;
+  }
+  body:not(.ats-print-active) .cv-beyond-card-header {
+    margin-bottom: 2px !important;
+  }
+  body:not(.ats-print-active) .cv-beyond-card-title {
+    font-size: 10px !important;
+  }
+  body:not(.ats-print-active) .cv-beyond-card-tag {
+    font-size: 8.5px !important;
+    padding: 0.5px 4px !important;
+  }
+  body:not(.ats-print-active) .cv-beyond-card-desc {
+    font-size: 9px !important;
+    line-height: 1.35 !important;
+  }
+  body:not(.ats-print-active) .cv-exp-title {
+    font-size: 13px !important;
+    margin-bottom: 3px !important;
+  }
+  body:not(.ats-print-active) .cv-exp-company {
+    font-size: 10.5px !important;
+    margin-bottom: 5px !important;
+  }
+  body:not(.ats-print-active) .cv-exp-list {
+    padding-left: 16px !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+  }
+  body:not(.ats-print-active) .cv-exp-list li {
+    font-size: 11px !important;
+    line-height: 1.52 !important;
+    margin-bottom: 4.5px !important;
+  }
+  body:not(.ats-print-active) .cv-exp-divider {
+    padding-top: 10px !important;
+    margin-top: 10px !important;
+  }
+
+
+
+  /* ATS Print */
+  body.ats-print-active {
+    background-color: #ffffff !important;
+  }
+
+  body.ats-print-active .ats-page {
+    width: 210mm !important;
+    max-width: 210mm !important;
+    margin: 0 !important;
+    padding: 20mm 18mm !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.ats-print-active .ats-header {
+    border-bottom: 2pt solid #000000 !important;
+  }
+
+  body.ats-print-active .ats-section-title {
+    border-bottom: 1.5pt solid #000000 !important;
+    color: #000000 !important;
+  }
+
+  body.ats-print-active .ats-name {
+    color: #000000 !important;
+  }
+
+  body.ats-print-active .ats-bullet-list {
+    color: #000000 !important;
+  }
+}

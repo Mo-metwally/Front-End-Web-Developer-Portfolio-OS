@@ -19,6 +19,7 @@ import ClientsWindowContent from './components/windows/ClientsWindowContent';
 import TerminalWindowContent from './components/windows/TerminalWindowContent';
 import ContactWindowContent from './components/windows/ContactWindowContent';
 import NotesWindowContent from './components/windows/NotesWindowContent';
+import ResumePage from './components/ResumePage';
 
 const getInitialWindows = (lang) => {
   const isAr = lang === 'ar';
@@ -283,6 +284,26 @@ const getInitialWindows = (lang) => {
 
 export default function App() {
   const { lang, t } = useLanguage();
+  const [currentPath, setCurrentPath] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname;
+    }
+    return '/';
+  });
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigate = (path) => {
+    window.history.pushState({}, '', path);
+    setCurrentPath(path);
+  };
+
   const [isBooting, setIsBooting] = useState(() => {
     try {
       return sessionStorage.getItem('portfolio_os_booted') !== 'true';
@@ -408,11 +429,30 @@ export default function App() {
     return t.windowTitles[focusedAppId];
   };
 
+  if (currentPath === '/resume' || currentPath === '/resume/') {
+    return (
+      <ResumePage
+        onBackToOS={() => {
+          try {
+            sessionStorage.setItem('portfolio_os_booted', 'true');
+          } catch {
+            // safe fallback
+          }
+          setIsBooting(false);
+          navigate('/');
+        }}
+      />
+    );
+  }
+
   return (
     <div className="relative w-screen h-screen os-wallpaper overflow-hidden flex flex-col">
       {/* 0. Linux OS Boot Screen & Decision Dialog */}
       {isBooting && (
-        <BootScreen onComplete={() => setIsBooting(false)} />
+        <BootScreen
+          onComplete={() => setIsBooting(false)}
+          onNavigateToResume={() => navigate('/resume')}
+        />
       )}
 
       {/* 1. Top macOS Menu Bar */}

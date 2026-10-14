@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, BookOpen, Code, Layers, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Award, BookOpen, Code, Layers, Sparkles, CheckCircle2, FileText } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../../data/portfolioData';
 import { useLanguage } from '../../context/LanguageContext';
 import AboutImg1 from '../../assets/about-me.jpg';
@@ -49,25 +49,61 @@ export default function AboutWindowContent() {
           </h1>
         </div>
 
-        <a
-          href={profile.linkedin || profile.linkedInUrl || "https://linkedin.com/in/mohamed-metwally-rzq"}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '4px',
-            fontSize: '12px',
-            fontWeight: '600',
-            color: '#1a1918',
-            textDecoration: 'none',
-            borderBottom: '1px solid rgba(200,138,88,0.5)',
-            paddingBottom: '2px'
-          }}
-        >
-          <span>{lang === 'ar' ? 'الملف الشخصي على LinkedIn' : 'My LinkedIn profile'}</span>
-          <span>↗</span>
-        </a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+          {/* Resume / CV Page Button */}
+          <a
+            href="/resume"
+            onClick={(e) => {
+              e.preventDefault();
+              window.history.pushState({}, '', '/resume');
+              window.dispatchEvent(new PopStateEvent('popstate'));
+            }}
+            className="group inline-flex items-center gap-2 text-xs font-semibold select-none cursor-pointer border border-[#423326] hover:border-[#382b20] transition-all duration-200 ease-out active:scale-95"
+            style={{
+              padding: '8px 18px',
+              borderRadius: '999px',
+              backgroundColor: 'rgb(36, 27, 20)',
+              color: 'rgb(253, 251, 247)',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.25)',
+              textDecoration: 'none'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#382b20';
+              // e.currentTarget.style.boxShadow = '0 6px 18px rgba(184, 93, 25, 0.4)';
+              // e.currentTarget.style.transform = 'translateY(-1px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgb(36, 27, 20)';
+              e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.25)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+            title={lang === 'ar' ? 'عرض السيرة الذاتية الرسمية (CV)' : 'View Full Interactive Resume / CV'}
+          >
+            <FileText className="w-3.5 h-3.5 text-[#c88a58] group-hover:text-white transition-colors duration-200" />
+            <span className="tracking-wide">{lang === 'ar' ? 'السيرة الذاتية (CV)' : 'Resume / CV'}</span>
+            <span className="text-[#c88a58] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200">↗</span>
+          </a>
+
+          <a
+            href={profile.linkedin || profile.linkedInUrl || "https://linkedin.com/in/mohamed-metwally-rzq"}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px',
+              fontSize: '12px',
+              fontWeight: '600',
+              color: '#1a1918',
+              textDecoration: 'none',
+              borderBottom: '1px solid rgba(200,138,88,0.5)',
+              paddingBottom: '2px'
+            }}
+          >
+            <span>{lang === 'ar' ? 'الملف الشخصي على LinkedIn' : 'My LinkedIn profile'}</span>
+            <span>↗</span>
+          </a>
+        </div>
       </div>
 
       {/* Main Grid: Story & Dual Profile Photos */}

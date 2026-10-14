@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Metwally - Front-End Developer CV</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cvBg: '#F5EFEB',        // Warm Luxury Off-White Page Background
+            cvCard: '#FAF7F2',      // Clean Off-White Card
+            cvCardSubtle: '#F0E8DE',// Subtle ivory
+            cvDarkBrown: '#201812', // Deep Rich Espresso Brown
+            cvTextDark: '#231B15',  // Espresso Primary Text
+            cvTextMuted: '#68594D', // Soft Muted Warm Brown
+            cvBorder: '#DDD1C2',    // Warm Stone Border
+            cvAccent: '#B85D19',    // Rich Cognac / Copper Accent
+            osGreen: '#1E8E3E',
+            osYellow: '#D97706',
+            osRed: '#E11D48',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    /* Print styles to render 2 perfectly proportioned A4 pages with zero cutoffs */
+    @media print {
+      html, body {
+        width: 210mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #F5EFEB !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .cv-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        background-color: #FAF7F2 !important;
+      }
+
+      .cv-page:last-child {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+      }
+
+      .cv-top-bar {
+        height: 30px !important;
+        padding: 5px 20px !important;
+        flex-shrink: 0 !important;
+      }
+
+      /* Page 1 Body: fine-tuned spacing so nothing gets cut off at the bottom */
+      .cv-body-p1 {
+        padding: 12px 18px 14px 18px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 !important;
+        height: calc(297mm - 30px) !important;
+        box-sizing: border-box !important;
+        justify-content: space-between !important;
+      }
+
+      /* Page 2 Body: approved and maintained */
+      .cv-body-p2 {
+        padding: 14px 20px 16px 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 !important;
+        height: calc(297mm - 30px) !important;
+        box-sizing: border-box !important;
+        justify-content: space-between !important;
+      }
+
+      .cv-grid {
+        display: grid !important;
+        grid-template-columns: 33.5% 64.5% !important;
+        gap: 10px !important;
+        flex: 1 !important;
+        box-sizing: border-box !important;
+      }
+
+      .cv-grid-left, .cv-grid-right {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        height: 100% !important;
+      }
+
+      .cv-section-box {
+        border-radius: 8px !important;
+        box-sizing: border-box !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-cvDarkBrown text-cvTextDark font-sans antialiased selection:bg-cvAccent selection:text-white min-h-screen py-8 px-4 print:py-0 print:px-0 space-y-8 print:space-y-0">
+
+  <!-- Print Button (Off-White with Brown Text) -->
+  <div class="max-w-4xl mx-auto mb-4 flex justify-end no-print">
+    <button onclick="window.print()" class="bg-[#FAF7F2] hover:bg-white text-cvDarkBrown font-semibold px-5 py-2.5 rounded-lg shadow-xl flex items-center gap-2 transition cursor-pointer border border-[#DDD1C2] hover:shadow-2xl">
+      <span>🖨️ Save as PDF (2 Pages - Enable Background Graphics)</span>
+    </button>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- PAGE 1: Profile, Experience & Flagship Systems -->
+  <!-- ========================================== -->
+  <main class="cv-page max-w-4xl mx-auto bg-cvCard border border-cvBorder rounded-2xl overflow-hidden shadow-2xl print:rounded-none print:border-none print:shadow-none">
+    
+    <!-- OS Top Window Bar (Page 1) -->
+    <div class="cv-top-bar bg-[#EDE5DA] border-b border-cvBorder px-5 py-2 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-osRed inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-osYellow inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-osGreen inline-block"></span>
+      </div>
+      <div class="font-mono text-xs text-cvTextMuted tracking-wider font-semibold">
+        ~/mohamed-metwally/resume-os.pdf [Page 1/2]
+      </div>
+      <div class="flex items-center gap-1.5 font-mono text-xs text-osGreen font-semibold">
+        <span class="w-2 h-2 rounded-full bg-osGreen animate-pulse"></span>
+        <span>ONLINE</span>
+      </div>
+    </div>
+
+    <div class="cv-body-p1 p-7 print:p-0">
+      
+      <!-- Header / Profile Section -->
+      <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 border-b border-cvBorder pb-3 shrink-0">
+        <div>
+          <p class="text-xs font-mono uppercase tracking-widest text-cvAccent font-bold mb-0.5">Professional Profile</p>
+          <h1 class="text-3xl print:text-[27px] font-serif font-bold text-cvDarkBrown tracking-tight leading-tight">Mohamed Metwally</h1>
+          <p class="text-sm print:text-[12.5px] text-cvTextMuted font-medium mt-0.5">
+            Front-End Web Developer <span class="text-cvAccent mx-1 font-bold">|</span> Solid Back-End Background
+          </p>
+        </div>
+
+        <!-- Contact Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-1 text-xs print:text-[10px] font-mono text-cvTextDark bg-[#EFE8DD] p-2.5 rounded-xl border border-cvBorder shrink-0">
+          <a href="https://mohammed-metwally.web.app" class="hover:text-cvAccent flex items-center gap-1.5">
+            <span class="text-cvAccent font-bold">🌐</span> mohammed-metwally.web.app
+          </a>
+          <a href="https://github.com/Mo-metwally" class="hover:text-cvAccent flex items-center gap-1.5">
+            <span class="text-cvAccent font-bold">💻</span> github.com/Mo-metwally
+          </a>
+          <a href="https://www.linkedin.com/in/mohamed-metwally-355969248" class="hover:text-cvAccent flex items-center gap-1.5">
+            <span class="text-cvAccent font-bold">🔗</span> in/mohamed-metwally
+          </a>
+          <a href="https://www.behance.net/mohamedmetwally29" class="hover:text-cvAccent flex items-center gap-1.5">
+            <span class="text-cvAccent font-bold">🎨</span> behance.net/mohamedmetwally29
+          </a>
+          <div class="flex items-center gap-1.5 col-span-full pt-0.5 text-cvTextMuted text-[10px]">
+            <span class="text-osGreen">●</span> Alexandria, Egypt · Available for Full-Time & Freelance Worldwide
+          </div>
+        </div>
+      </header>
+
+      <!-- 01 // Executive Summary (Compact, rich, highly readable) -->
+      <section class="bg-cvDarkBrown text-[#FAF5EE] p-3.5 print:p-3 rounded-xl shadow border border-stone-800 shrink-0 my-2 print:my-1.5">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-xs print:text-[10.5px] font-mono uppercase tracking-widest text-[#E69352] font-bold">01 // Executive Summary</h2>
+          <span class="font-mono text-[11px] text-[#C4B5A5]">README.md</span>
+        </div>
+        <p class="text-xs print:text-[11px] leading-relaxed text-[#F3ECE1]">
+          Detail-driven <strong>Front-End Web Developer & UI/UX Architect</strong> with 4+ years of hands-on experience engineering high-performance, accessible, and scalable web platforms. Specialized in <strong>Next.js 14, React.js, GSAP, and Tailwind CSS</strong>, backed by a solid foundation in <strong>Node.js, Express, PostgreSQL, and RESTful APIs</strong>. Architected <strong>13 production client platforms</strong> (E-Commerce, Legal Portals, and Edutainment SaaS) and holds <strong>18 verified credentials</strong> across Meta, IBM, and Udacity.
+        </p>
+      </section>
+
+      <!-- Two-Column Layout (Page 1) -->
+      <div class="cv-grid grid grid-cols-1 md:grid-cols-3 gap-3 flex-1">
+        
+        <!-- Left Column: Tech Stack, Education, Stats -->
+        <div class="cv-grid-left space-y-2.5 print:space-y-0">
+          
+          <!-- 02 // Tech Stack & Architecture -->
+          <div class="cv-section-box bg-[#F2EBE1] p-3 rounded-xl border border-cvBorder">
+            <h2 class="text-xs print:text-[10.5px] font-mono uppercase tracking-widest text-cvAccent font-bold mb-1.5">02 // Tech Stack</h2>
+            
+            <div class="space-y-1.5">
+              <div>
+                <h3 class="text-xs print:text-[10px] font-bold text-cvTextMuted mb-1">Front-End & Animations</h3>
+                <div class="flex flex-wrap gap-1">
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-semibold text-cvDarkBrown shadow-sm">Next.js 14</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-semibold text-cvDarkBrown shadow-sm">React.js</span>
+                  <span class="px-2 py-0.5 bg-[#FBF0E6] border border-[#E8C29E] rounded text-xs print:text-[9.5px] font-bold text-cvAccent shadow-sm">GSAP</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-semibold text-cvDarkBrown shadow-sm">Tailwind CSS</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-medium text-cvTextDark shadow-sm">Vite.js</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-medium text-cvTextDark shadow-sm">JavaScript (ES6+)</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-medium text-cvTextDark shadow-sm">Sass / SCSS</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-medium text-cvTextDark shadow-sm">Bootstrap 5</span>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-xs print:text-[10px] font-bold text-cvTextMuted mb-1">Back-End & Databases</h3>
+                <div class="flex flex-wrap gap-1">
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-semibold text-cvDarkBrown shadow-sm">Node.js</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-semibold text-cvDarkBrown shadow-sm">Express.js</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-semibold text-cvDarkBrown shadow-sm">PostgreSQL</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-medium text-cvTextDark shadow-sm">RESTful APIs</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-medium text-cvTextDark shadow-sm">Firebase</span>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-xs print:text-[10px] font-bold text-cvTextMuted mb-1">UI/UX & Engineering Tools</h3>
+                <div class="flex flex-wrap gap-1">
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-medium text-cvTextDark shadow-sm">Figma</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-medium text-cvTextDark shadow-sm">Adobe XD</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-medium text-cvTextDark shadow-sm">Git / GitHub</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-medium text-cvTextDark shadow-sm">Postman</span>
+                  <span class="px-2 py-0.5 bg-white border border-cvBorder rounded text-xs print:text-[9.5px] font-medium text-cvTextDark shadow-sm">Photoshop</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 03 // Education & Languages -->
+          <div class="cv-section-box bg-[#F2EBE1] p-3 rounded-xl border border-cvBorder">
+            <h2 class="text-xs print:text-[10.5px] font-mono uppercase tracking-widest text-cvAccent font-bold mb-1.5">03 // Education & Languages</h2>
+            <div class="mb-1.5">
+              <h3 class="text-sm print:text-[11.5px] font-bold text-cvDarkBrown">B.Sc. in Computer & Information Systems (C.I.S)</h3>
+              <p class="text-xs print:text-[10.5px] text-cvTextMuted mt-0.5">Alexandria University · 2018 – 2022</p>
+            </div>
+            <div class="border-t border-cvBorder pt-1.5 flex justify-between text-xs print:text-[10.5px]">
+              <div><strong class="text-cvDarkBrown">Arabic:</strong> <span class="text-cvTextMuted">Native</span></div>
+              <div><strong class="text-cvDarkBrown">English:</strong> <span class="text-cvTextMuted">Upper-Intermediate (B2)</span></div>
+            </div>
+          </div>
+
+          <!-- Key Stats Box -->
+          <div class="cv-section-box bg-[#EFE8DD] p-2.5 rounded-xl border border-cvBorder text-center">
+            <div class="grid grid-cols-3 gap-1.5">
+              <div>
+                <span class="block text-base print:text-[15px] font-bold text-cvAccent font-mono">13+</span>
+                <span class="text-[9.5px] font-mono text-cvTextMuted uppercase font-semibold">Live Systems</span>
+              </div>
+              <div class="border-x border-cvBorder">
+                <span class="block text-base print:text-[15px] font-bold text-cvAccent font-mono">18</span>
+                <span class="text-[9.5px] font-mono text-cvTextMuted uppercase font-semibold">Certificates</span>
+              </div>
+              <div>
+                <span class="block text-base print:text-[15px] font-bold text-cvAccent font-mono">68+</span>
+                <span class="text-[9.5px] font-mono text-cvTextMuted uppercase font-semibold">GitHub Repos</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Experience & Featured Flagship Platforms -->
+        <div class="cv-grid-right md:col-span-2 space-y-2.5 print:space-y-0">
+          
+          <!-- 04 // Work Experience -->
+          <div class="cv-section-box bg-[#F2EBE1] p-3 rounded-xl border border-cvBorder">
+            <h2 class="text-xs print:text-[10.5px] font-mono uppercase tracking-widest text-cvAccent font-bold mb-1.5">04 // Work Experience</h2>
+            
+            <div class="space-y-2">
+              <!-- Job 1 -->
+              <div>
+                <div class="flex flex-wrap justify-between items-baseline mb-0.5">
+                  <h3 class="text-sm print:text-[12.5px] font-bold text-cvDarkBrown">Front-End Web Developer</h3>
+                  <span class="text-xs print:text-[10px] font-mono text-cvAccent font-bold">March 2022 – Present · Full-Time</span>
+                </div>
+                <p class="text-xs print:text-[10.5px] text-cvTextMuted font-semibold mb-1">Missan Elmaharya for Information Technology</p>
+                <ul class="list-disc list-inside text-xs print:text-[10.5px] text-cvTextDark space-y-0.5 leading-snug">
+                  <li>Spearheaded the development, optimization, and lifecycle deployment of multiple enterprise platforms.</li>
+                  <li>Engineered high-performance web applications using <strong>Next.js, React.js, and Tailwind CSS</strong> with 95+ PageSpeed.</li>
+                  <li>Built interactive timeline animations with <strong>GSAP</strong> to elevate storytelling and increase retention.</li>
+                  <li>Connected views with robust back-end microservices built on <strong>Node.js, Express, and PostgreSQL</strong>.</li>
+                </ul>
+              </div>
+
+              <!-- Job 2 -->
+              <div class="border-t border-cvBorder pt-1.5">
+                <div class="flex flex-wrap justify-between items-baseline mb-0.5">
+                  <h3 class="text-sm print:text-[12.5px] font-bold text-cvDarkBrown">Front-End Developer & UI Designer</h3>
+                  <span class="text-xs print:text-[10px] font-mono text-cvAccent font-bold">March 2022 – Present · Contract</span>
+                </div>
+                <p class="text-xs print:text-[10.5px] text-cvTextMuted font-semibold mb-1">Freelance & Independent Client Engagements (Saudi Arabia, Egypt, Gulf)</p>
+                <ul class="list-disc list-inside text-xs print:text-[10.5px] text-cvTextDark space-y-0.5 leading-snug">
+                  <li>Delivered complete digital solutions for legal firms, e-commerce storefronts, and gaming portals from UI/UX to code.</li>
+                  <li>Designed wireframes and responsive design systems in <strong>Figma</strong> and converted them into accessible code.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 05 // Featured Flagship Platforms -->
+          <div class="cv-section-box bg-[#F2EBE1] p-3 rounded-xl border border-cvBorder flex-1 flex flex-col justify-between">
+            <div class="flex justify-between items-center mb-1.5">
+              <h2 class="text-xs print:text-[10.5px] font-mono uppercase tracking-widest text-cvAccent font-bold">05 // Featured Flagship Platforms</h2>
+              <span class="text-[10px] font-mono text-cvTextMuted font-semibold">See Page 2 for All 13 Systems</span>
+            </div>
+
+            <div class="space-y-1.5 flex-1 flex flex-col justify-between">
+              
+              <!-- Project 1 -->
+              <div class="p-2.5 rounded-lg bg-white border border-cvBorder shadow-sm">
+                <div class="flex justify-between items-center mb-0.5">
+                  <h3 class="text-xs print:text-[11.5px] font-bold text-cvDarkBrown">Hawash Law Firm — Corporate Platform</h3>
+                  <a href="https://hawashlawfirm.com/" class="text-[10px] font-mono text-cvAccent font-bold hover:underline">hawashlawfirm.com ↗</a>
+                </div>
+                <p class="text-xs print:text-[10px] text-cvTextMuted leading-tight mb-1">
+                  Full-scale legal platform providing international corporate consultation, case management workflows, and dynamic directories.
+                </p>
+                <div class="flex flex-wrap gap-1 text-[9px] font-mono text-[#7A6B5D]">
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">Next.js 14 App Router</span>
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">Node.js</span>
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">PostgreSQL</span>
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">Tailwind CSS</span>
+                </div>
+              </div>
+
+              <!-- Project 2 -->
+              <div class="p-2.5 rounded-lg bg-white border border-cvBorder shadow-sm">
+                <div class="flex justify-between items-center mb-0.5">
+                  <h3 class="text-xs print:text-[11.5px] font-bold text-cvDarkBrown">Jawlah Games Platform — Edutainment & SaaS</h3>
+                  <a href="https://jawlahsa.com/" class="text-[10px] font-mono text-cvAccent font-bold hover:underline">jawlahsa.com ↗</a>
+                </div>
+                <p class="text-xs print:text-[10px] text-cvTextMuted leading-tight mb-1">
+                  Arab educational gaming portal bridging learning & gaming with 5 interactive adventures, integrated with an Admin Dashboard.
+                </p>
+                <div class="flex flex-wrap gap-1 text-[9px] font-mono text-[#7A6B5D]">
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">React.js</span>
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">Vite</span>
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">Tailwind CSS</span>
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">Analytics Dashboard</span>
+                </div>
+              </div>
+
+              <!-- Project 3 -->
+              <div class="p-2.5 rounded-lg bg-white border border-cvBorder shadow-sm">
+                <div class="flex justify-between items-center mb-0.5">
+                  <h3 class="text-xs print:text-[11.5px] font-bold text-cvDarkBrown">Hamsat Home — Modern E-Commerce Platform</h3>
+                  <a href="https://hamsathome.com/" class="text-[10px] font-mono text-cvAccent font-bold hover:underline">hamsathome.com ↗</a>
+                </div>
+                <p class="text-xs print:text-[10px] text-cvTextMuted leading-tight mb-1">
+                  High-conversion homeware storefront with multi-category product catalog, real-time cart state, and optimized fast checkout.
+                </p>
+                <div class="flex flex-wrap gap-1 text-[9px] font-mono text-[#7A6B5D]">
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">React.js</span>
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">Node.js</span>
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">PostgreSQL</span>
+                  <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">Express.js</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- PAGE 2: Client Platforms & 18 Certifications -->
+  <!-- ========================================== -->
+  <main class="cv-page max-w-4xl mx-auto bg-cvCard border border-cvBorder rounded-2xl overflow-hidden shadow-2xl print:rounded-none print:border-none print:shadow-none">
+    
+    <!-- OS Top Window Bar (Page 2) -->
+    <div class="cv-top-bar bg-[#EDE5DA] border-b border-cvBorder px-5 py-2 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-osRed inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-osYellow inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-osGreen inline-block"></span>
+      </div>
+      <div class="font-mono text-xs text-cvTextMuted tracking-wider font-semibold">
+        ~/mohamed-metwally/resume-os.pdf [Page 2/2]
+      </div>
+      <div class="flex items-center gap-1.5 font-mono text-xs text-osGreen font-semibold">
+        <span class="w-2 h-2 rounded-full bg-osGreen animate-pulse"></span>
+        <span>VERIFIED CREDENTIALS</span>
+      </div>
+    </div>
+
+    <div class="cv-body-p2 p-8 print:p-0">
+      
+      <!-- Page 2 Header -->
+      <div class="flex justify-between items-center border-b border-cvBorder pb-2.5 shrink-0">
+        <div>
+          <h2 class="text-xl print:text-[16px] font-serif font-bold text-cvDarkBrown">Production Platforms & Verified Credentials</h2>
+          <p class="text-xs print:text-[11px] text-cvTextMuted font-medium">Detailed client delivery records and professional engineering certifications</p>
+        </div>
+        <div class="text-right font-mono text-xs print:text-[10.5px] text-cvTextMuted font-semibold">
+          <span class="text-cvAccent font-bold">13</span> Live Projects · <span class="text-cvAccent font-bold">18</span> Credentials
+        </div>
+      </div>
+
+      <!-- 06 // Client Platforms & Web Systems (6 Additional Live Projects) -->
+      <section class="cv-section-box bg-[#F2EBE1] p-4 rounded-xl border border-cvBorder shrink-0">
+        <div class="flex justify-between items-center mb-2.5">
+          <h2 class="text-xs print:text-[11px] font-mono uppercase tracking-widest text-cvAccent font-bold">06 // Additional Live Client Platforms (E-Commerce, Legal & UI/UX)</h2>
+          <span class="text-xs print:text-[10px] font-mono text-cvTextMuted font-semibold">Selected from 13 Platforms</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          
+          <!-- Project 4 -->
+          <div class="p-3 rounded-lg bg-white border border-cvBorder shadow-sm">
+            <div class="flex justify-between items-baseline mb-1">
+              <h3 class="text-sm print:text-[12px] font-bold text-cvDarkBrown">Al-Resala Legal Firm</h3>
+              <a href="https://rsallaw.com/" class="text-xs print:text-[10px] font-mono text-cvAccent font-bold hover:underline">rsallaw.com ↗</a>
+            </div>
+            <p class="text-xs print:text-[11px] text-cvTextMuted leading-relaxed mb-1.5">
+              Corporate legal consulting platform with client consultation booking workflows and complete PostgreSQL database integration.
+            </p>
+            <div class="text-xs print:text-[9.5px] font-mono text-[#7A6B5D] flex flex-wrap gap-1.5">
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#React.js</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#Node.js</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#PostgreSQL</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#Bootstrap</span>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="p-3 rounded-lg bg-white border border-cvBorder shadow-sm">
+            <div class="flex justify-between items-baseline mb-1">
+              <h3 class="text-sm print:text-[12px] font-bold text-cvDarkBrown">Ibrahim Al-Zahrani & Ahmed Al-Malki Law</h3>
+              <a href="https://i-a-lawco.com/" class="text-xs print:text-[10px] font-mono text-cvAccent font-bold hover:underline">i-a-lawco.com ↗</a>
+            </div>
+            <p class="text-xs print:text-[11px] text-cvTextMuted leading-relaxed mb-1.5">
+              Prestigious Saudi law firm portal featuring legal consultation booking, services directory, and dynamic client management.
+            </p>
+            <div class="text-xs print:text-[9.5px] font-mono text-[#7A6B5D] flex flex-wrap gap-1.5">
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#React.js</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#REST_API</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#Responsive</span>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="p-3 rounded-lg bg-white border border-cvBorder shadow-sm">
+            <div class="flex justify-between items-baseline mb-1">
+              <h3 class="text-sm print:text-[12px] font-bold text-cvDarkBrown">TrendLine E-Commerce Platform</h3>
+              <a href="https://trendlineeg.com/" class="text-xs print:text-[10px] font-mono text-cvAccent font-bold hover:underline">trendlineeg.com ↗</a>
+            </div>
+            <p class="text-xs print:text-[11px] text-cvTextMuted leading-relaxed mb-1.5">
+              High-traffic fashion e-commerce storefront with optimized product filters, real-time inventory tracking, and swift checkout.
+            </p>
+            <div class="text-xs print:text-[9.5px] font-mono text-[#7A6B5D] flex flex-wrap gap-1.5">
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#Next.js</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#TailwindCSS</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#ECommerce</span>
+            </div>
+          </div>
+
+          <!-- Project 7 -->
+          <div class="p-3 rounded-lg bg-white border border-cvBorder shadow-sm">
+            <div class="flex justify-between items-baseline mb-1">
+              <h3 class="text-sm print:text-[12px] font-bold text-cvDarkBrown">Interactive Desktop OS Portfolio</h3>
+              <a href="https://mohammed-metwally.web.app/" class="text-xs print:text-[10px] font-mono text-osGreen font-bold hover:underline">Live Demo ↗</a>
+            </div>
+            <p class="text-xs print:text-[11px] text-cvTextMuted leading-relaxed mb-1.5">
+              Complete desktop OS workspace in browser with interactive draggable windows, dock navigation, live terminal CLI, and GSAP.
+            </p>
+            <div class="text-xs print:text-[9.5px] font-mono text-[#7A6B5D] flex flex-wrap gap-1.5">
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#React.js</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#GSAP</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#TailwindCSS</span>
+            </div>
+          </div>
+
+          <!-- Project 8 -->
+          <div class="p-3 rounded-lg bg-white border border-cvBorder shadow-sm">
+            <div class="flex justify-between items-baseline mb-1">
+              <h3 class="text-sm print:text-[12px] font-bold text-cvDarkBrown">Missan Al-Mahariya & Lawyer Portals</h3>
+              <a href="https://missanvip.com/" class="text-xs print:text-[10px] font-mono text-cvAccent font-bold hover:underline">missanvip.com ↗</a>
+            </div>
+            <p class="text-xs print:text-[11px] text-cvTextMuted leading-relaxed mb-1.5">
+              Corporate portal and legal workflow systems delivering high-security client operations, services catalog, and multi-tenant views.
+            </p>
+            <div class="text-xs print:text-[9.5px] font-mono text-[#7A6B5D] flex flex-wrap gap-1.5">
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#Production</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#React</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#Enterprise</span>
+            </div>
+          </div>
+
+          <!-- Project 9 -->
+          <div class="p-3 rounded-lg bg-white border border-cvBorder shadow-sm">
+            <div class="flex justify-between items-baseline mb-1">
+              <h3 class="text-sm print:text-[12px] font-bold text-cvDarkBrown">Ramis Hotel & EDU Weaver (UI/UX)</h3>
+              <a href="https://www.behance.net/mohamedmetwally29" class="text-xs print:text-[10px] font-mono text-cvAccent font-bold hover:underline">Behance ↗</a>
+            </div>
+            <p class="text-xs print:text-[11px] text-cvTextMuted leading-relaxed mb-1.5">
+              Comprehensive UI/UX design systems, user journeys, accessibility testing, and responsive prototype implementations.
+            </p>
+            <div class="text-xs print:text-[9.5px] font-mono text-[#7A6B5D] flex flex-wrap gap-1.5">
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#Figma</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#AdobeXD</span>
+              <span class="bg-[#F5EFEB] px-1.5 py-0.5 rounded font-semibold">#DesignSystem</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 07 // Verified Certifications & Nanodegrees (18 Credentials Breakdown) -->
+      <section class="cv-section-box bg-[#F2EBE1] p-4 rounded-xl border border-cvBorder flex-1 flex flex-col justify-between">
+        <div class="flex justify-between items-center mb-2.5">
+          <h2 class="text-xs print:text-[11px] font-mono uppercase tracking-widest text-cvAccent font-bold">07 // Verified Engineering Certifications & Nanodegrees (18 Credentials)</h2>
+          <span class="text-xs print:text-[10px] font-mono text-cvTextMuted font-semibold">Meta · IBM · Udacity · Egypt FWD</span>
+        </div>
+
+        <div class="space-y-2.5 flex-1 flex flex-col justify-between">
+          
+          <!-- Flagship 1: Meta Front-End Developer Specialization -->
+          <div class="p-3 rounded-lg bg-white border border-cvBorder shadow-sm">
+            <div class="flex justify-between items-center mb-1.5">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#0081fb] inline-block"></span>
+                <h3 class="text-sm print:text-[12.5px] font-bold text-cvDarkBrown">Meta Front-End Developer Professional Specialization</h3>
+              </div>
+              <span class="text-xs print:text-[10.5px] font-mono text-cvAccent font-bold">9 Courses Certified · Oct 2024</span>
+            </div>
+            <p class="text-xs print:text-[11px] text-cvTextMuted leading-relaxed mb-2">
+              Comprehensive professional engineering certification issued by <strong>Meta</strong>, covering modern React.js architectures, UI/UX systems, state management, asynchronous JavaScript, and production deployment.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 text-xs print:text-[9.5px] text-cvTextDark font-mono bg-[#FAF7F2] p-2 rounded border border-cvBorder">
+              <div>✦ Front-End Developer Capstone</div>
+              <div>✦ Advanced React (Hooks & Context)</div>
+              <div>✦ Programming with JavaScript (ES6+)</div>
+              <div>✦ Principles of UX/UI Design (Figma)</div>
+              <div>✦ HTML and CSS in Depth</div>
+              <div>✦ Version Control (Git & GitHub)</div>
+              <div>✦ Coding Interview Preparation</div>
+              <div>✦ React Basics & Components</div>
+              <div>✦ Web Engineering Foundations</div>
+            </div>
+          </div>
+
+          <!-- Flagship 2 & 3 in 2 Columns -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            
+            <!-- Udacity Nanodegree -->
+            <div class="p-3 rounded-lg bg-white border border-cvBorder shadow-sm">
+              <div class="flex justify-between items-baseline mb-0.5">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#02b3e4] inline-block"></span>
+                  <h3 class="text-sm print:text-[12px] font-bold text-cvDarkBrown">Professional Front-End Web Development</h3>
+                </div>
+                <span class="text-xs print:text-[10px] font-mono text-cvAccent font-semibold">Jan 2023</span>
+              </div>
+              <p class="text-xs print:text-[10.5px] text-cvTextMuted font-semibold mb-1">Egypt FWD / Udacity Nanodegree Program</p>
+              <p class="text-xs print:text-[10.5px] text-cvTextDark leading-relaxed mb-1">
+                Intensive front-end engineering program focused on asynchronous JavaScript, build pipelines, single-page application architectures, and web performance optimization.
+              </p>
+              <div class="text-[9.5px] font-mono text-cvTextMuted">Skills: Async JS · Webpack · Single-Page Apps · Performance</div>
+            </div>
+
+            <!-- IBM React Certification -->
+            <div class="p-3 rounded-lg bg-white border border-cvBorder shadow-sm">
+              <div class="flex justify-between items-baseline mb-0.5">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#1f70c1] inline-block"></span>
+                  <h3 class="text-sm print:text-[12px] font-bold text-cvDarkBrown">Developing Front-End Apps with React</h3>
+                </div>
+                <span class="text-xs print:text-[10px] font-mono text-cvAccent font-semibold">IBM Certified</span>
+              </div>
+              <p class="text-xs print:text-[10.5px] text-cvTextMuted font-semibold mb-1">IBM Cloud & Enterprise Application Track</p>
+              <p class="text-xs print:text-[10.5px] text-cvTextDark leading-relaxed mb-1">
+                Enterprise React application development, component hierarchies, stateful hooks, Redux integration, and cloud native deployment pipelines.
+              </p>
+              <div class="text-[9.5px] font-mono text-cvTextMuted">Skills: React · Redux · State Management · Cloud Native</div>
+            </div>
+
+          </div>
+
+          <!-- Additional Tracks -->
+          <div class="p-2.5 rounded-lg bg-white border border-cvBorder shadow-sm flex flex-wrap justify-between items-center text-xs print:text-[10.5px]">
+            <div class="flex items-center gap-2">
+              <span class="text-cvAccent font-bold">✦</span>
+              <strong class="text-cvDarkBrown">Challenger Front-End Web Development Track</strong>
+              <span class="text-cvTextMuted">(Udacity / Egypt FWD)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-osGreen font-bold">●</span>
+              <strong class="text-cvDarkBrown">Microsoft Front-End Professional Certificate</strong>
+              <span class="text-cvTextMuted">(Coursera · In Progress)</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Page 2 Footer -->
+      <footer class="border-t border-cvBorder pt-2 flex justify-between items-center text-xs print:text-[10px] font-mono text-cvTextMuted shrink-0">
+        <div>
+          Mohamed Metwally · Full-Stack & Front-End Developer · <a href="https://mohammed-metwally.web.app/" class="text-cvAccent font-semibold hover:underline">mohammed-metwally.web.app</a>
+        </div>
+        <div class="flex items-center gap-2 text-cvTextDark font-semibold">
+          <span class="text-osGreen">●</span> Available for Full-Time Roles & International Freelance
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+</body>
+</html>

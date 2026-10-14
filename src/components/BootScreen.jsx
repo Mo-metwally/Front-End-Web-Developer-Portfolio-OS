@@ -3,7 +3,7 @@ import LogoImg from '../assets/Logo.png';
 import { useLanguage } from '../context/LanguageContext';
 import { Globe } from 'lucide-react';
 
-export default function BootScreen({ onComplete }) {
+export default function BootScreen({ onComplete, onNavigateToResume }) {
   const { lang, toggleLang } = useLanguage();
   const [bootStep, setBootStep] = useState(0); // 0: log sequence, 1: dialog ready
   const [logs, setLogs] = useState([]);
@@ -66,7 +66,12 @@ export default function BootScreen({ onComplete }) {
     try {
       sessionStorage.setItem('portfolio_os_booted', 'true');
     } catch (e) {}
-    window.location.href = 'https://mohammed-metwally-classic.web.app/resume';
+    if (onNavigateToResume) {
+      onNavigateToResume();
+    } else {
+      window.history.pushState({}, '', '/resume');
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    }
   };
 
   return (

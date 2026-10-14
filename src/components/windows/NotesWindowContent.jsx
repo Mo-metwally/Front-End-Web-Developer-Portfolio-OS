@@ -76,13 +76,40 @@ export default function NotesWindowContent() {
 
       {/* Note Content Area */}
       <div style={{ flex: 1, padding: 'clamp(14px, 3.5vw, 32px)', display: 'flex', flexDirection: 'column', gap: '14px', overflowY: 'auto' }}>
-        <div style={{ paddingBottom: '10px', borderBottom: '1px solid #eae6dc' }}>
-          <span className="font-mono-code" style={{ fontSize: '9.5px', fontWeight: '700', textTransform: 'uppercase', color: '#8c867a', display: 'block', marginBottom: '3px' }}>
-            {currentDate}
-          </span>
-          <h2 className="font-serif-display" style={{ fontSize: 'clamp(18px, 4vw, 26px)', fontWeight: '700', color: '#1a1918', lineHeight: '1.2' }}>
-            {currentTitle}
-          </h2>
+        <div style={{ paddingBottom: '10px', borderBottom: '1px solid #eae6dc', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+          <div>
+            <span className="font-mono-code" style={{ fontSize: '9.5px', fontWeight: '700', textTransform: 'uppercase', color: '#8c867a', display: 'block', marginBottom: '3px' }}>
+              {currentDate}
+            </span>
+            <h2 className="font-serif-display" style={{ fontSize: 'clamp(18px, 4vw, 26px)', fontWeight: '700', color: '#1a1918', lineHeight: '1.2' }}>
+              {currentTitle}
+            </h2>
+          </div>
+          {currentNote.id === 'resume' && (
+            <button
+              onClick={() => {
+                window.history.pushState({}, '', '/resume');
+                window.dispatchEvent(new PopStateEvent('popstate'));
+              }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 14px',
+                borderRadius: '8px',
+                backgroundColor: '#b85d19',
+                color: '#ffffff',
+                border: 'none',
+                fontSize: '11px',
+                fontWeight: '700',
+                cursor: 'pointer',
+                boxShadow: '0 2px 8px rgba(184, 93, 25, 0.3)',
+                transition: 'all 0.15s ease'
+              }}
+            >
+              <span>{lang === 'ar' ? 'فتح السيرة الذاتية الكاملة (A4 PDF) ↗' : 'Open Full Resume (A4 PDF) ↗'}</span>
+            </button>
+          )}
         </div>
 
         <div style={{ fontSize: 'clamp(11.5px, 2.5vw, 13px)', color: '#3d3a35', lineHeight: '1.8', whiteSpace: 'pre-wrap', fontWeight: '400' }}>
